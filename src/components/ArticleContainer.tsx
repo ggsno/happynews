@@ -8,7 +8,7 @@ export default function ArticleContainer({
   return (
     <div className="flex justify-center">
       <div className="w-96 md:w-[var(--content-width-max)] ">
-        <div className="h-[calc(100vh-var(--header-height))] mt-[var(--header-height)] snap-y snap-mandatory overflow-scroll">
+        <div className="h-[calc(100vh-var(--header-height))] mt-[var(--header-height)] snap-y snap-mandatory overflow-scroll scrollbar-hide">
           {articles.map((article, i) => (
             <div
               key={`article ${i}`}
