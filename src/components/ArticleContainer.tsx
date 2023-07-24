@@ -6,19 +6,20 @@ export default function ArticleContainer({
   articles: ArticleProps[];
 }) {
   return (
-    <div className="flex justify-center">
-      <div className="w-96 md:w-[var(--content-width-max)] ">
-        <div className="h-[calc(100vh-var(--header-height))] mt-[var(--header-height)] snap-y snap-mandatory overflow-scroll scrollbar-hide">
-          {articles.map((article, i) => (
-            <div
-              key={`article ${i}`}
-              className="mb-4 h-[calc(100vh-var(--header-height)-2rem)] snap-start"
-            >
-              <Article {...article} />
-            </div>
-          ))}
+    <div
+      className="flex flex-col items-center mt-[var(--header-height)] 
+    h-[calc(100vh-var(--header-height))] snap-y snap-mandatory 
+    overflow-scroll scrollbar-hide"
+    >
+      {articles.map((article, i) => (
+        <div
+          key={`article ${i}`}
+          className="flex-shrink-0 w-[var(--content-width)] h-[calc(100vh-var(--header-height)-2rem)]
+           snap-start mb-4 "
+        >
+          <Article {...article} />
         </div>
-      </div>
+      ))}
     </div>
   );
 }
