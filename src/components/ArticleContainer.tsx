@@ -15,8 +15,8 @@ export default function ArticleContainer({
       {articles.map((article, i) => (
         <div
           key={`article ${i}`}
-          className="flex-shrink-0 w-[var(--content-width)] h-[calc(100vh-var(--header-height)-2rem)]
-           snap-start mb-4 "
+          className="flex-shrink-0 snap-start mb-4 max-w-[var(--content-width)]
+            h-[calc(100vh-var(--header-height)-2rem)]"
         >
           <Article {...article} />
         </div>
