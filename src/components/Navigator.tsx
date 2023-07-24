@@ -1,28 +1,69 @@
 "use client";
 
+import { useEffect, useRef, useState } from "react";
+
 export default function Navigator() {
+  const containerRef = useRef<HTMLDivElement | null>(null);
+  const [atTop, setAtTop] = useState(true);
+  const [atBottom, setAtBottom] = useState(true);
+
   const goUp = () => {
-    if (window) {
-      scrollTo({
-        top: innerHeight / 2,
-        behavior: "smooth",
-      });
-    }
+    containerRef.current?.scrollBy({
+      top: -innerHeight,
+      behavior: "smooth",
+    });
   };
 
   const goDown = () => {
-    if (window) {
-      scrollBy({
-        top: innerHeight / 2,
-        behavior: "smooth",
-      });
-    }
+    containerRef.current?.scrollBy({
+      top: innerHeight,
+      behavior: "smooth",
+    });
   };
+
+  const isAtTop = () => containerRef.current?.scrollTop === 0;
+
+  const isAtBottom = () =>
+    containerRef.current?.scrollHeight! -
+      containerRef.current?.scrollTop! -
+      containerRef.current?.clientHeight! <
+    containerRef.current?.clientHeight!;
+
+  useEffect(() => {
+    containerRef.current = document.querySelector("#ArticleContainer");
+    if (containerRef.current) {
+      setAtTop(isAtTop());
+      setAtBottom(isAtBottom());
+    }
+
+    const handleScroll = () => {
+      setAtTop(isAtTop());
+      setAtBottom(isAtBottom());
+    };
+
+    containerRef.current?.addEventListener("scroll", handleScroll);
+
+    return () => {
+      containerRef.current?.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   return (
     <div className="fixed bottom-10 right-10 flex flex-col">
-      <button onClick={goUp}>up</button>
-      <button onClick={goDown}>down</button>
+      <button
+        onClick={goUp}
+        disabled={atTop}
+        className="disabled:text-gray-400"
+      >
+        up
+      </button>
+      <button
+        onClick={goDown}
+        disabled={atBottom}
+        className="disabled:text-gray-400"
+      >
+        down
+      </button>
     </div>
   );
 }
