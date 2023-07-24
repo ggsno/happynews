@@ -21,12 +21,12 @@ export default function Navigator() {
     });
   };
 
-  const isAtTop = () => containerRef.current?.scrollTop === 0;
+  const isAtTop = () => containerRef.current?.scrollTop! === 0;
 
   const isAtBottom = () =>
     containerRef.current?.scrollHeight! -
-      containerRef.current?.scrollTop! -
-      containerRef.current?.clientHeight! <
+      (containerRef.current?.scrollTop! + containerRef.current?.clientHeight!) +
+      32 <
     containerRef.current?.clientHeight!;
 
   useEffect(() => {
