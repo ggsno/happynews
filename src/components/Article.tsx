@@ -1,4 +1,5 @@
 export type ArticleProps = {
+  id: string;
   title: string;
   summary: string;
   link: string;
