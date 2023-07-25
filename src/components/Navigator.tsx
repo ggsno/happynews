@@ -49,7 +49,7 @@ export default function Navigator() {
   }, []);
 
   return (
-    <div className="fixed bottom-10 right-10 flex flex-col">
+    <div className="hidden sm:flex flex-col fixed bottom-10 right-10 ">
       <button
         onClick={goUp}
         disabled={atTop}
