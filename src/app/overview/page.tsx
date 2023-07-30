@@ -10,7 +10,7 @@ export default async function Overview() {
         <div className="px-4 max-w-[var(--content-width)]">
           {articles.map((article) => (
             <Link
-              href={`/${article.id}`}
+              href={`/shorts/${article.id}`}
               key={`article ${article.id}`}
               className="flex items-center h-16 w-full mb-4"
             >
