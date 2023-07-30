@@ -1,9 +1,8 @@
-import { ArticleProps } from "@/components/Article";
-import dummy from "../../../public/dummynews.json";
 import Link from "next/link";
+import { getArticles } from "@/api/article";
 
-export default function Overview() {
-  const articles = dummy as ArticleProps[];
+export default async function Overview() {
+  const articles = await getArticles();
 
   return (
     <>
