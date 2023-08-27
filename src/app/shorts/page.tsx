@@ -6,7 +6,7 @@ export default async function Shorts() {
 
   return (
     <>
-      <ArticleContainer articles={articles} />
+      <ArticleContainer initArticles={articles} />
     </>
   );
 }

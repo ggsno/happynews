@@ -1,11 +1,16 @@
+"use client";
+
 import Article, { ArticleProps } from "./Article";
 import Navigator from "./Navigator";
+import { useArticle } from "./useArticle";
 
 export default function ArticleContainer({
-  articles,
+  initArticles,
 }: {
-  articles: ArticleProps[];
+  initArticles: ArticleProps[];
 }) {
+  const { articles, setTarget } = useArticle(initArticles);
+
   return (
     <>
       <div
@@ -14,15 +19,19 @@ export default function ArticleContainer({
     h-[calc(100vh-var(--header-height))] snap-y snap-mandatory 
     overflow-scroll scrollbar-hide"
       >
-        {articles.map((article) => (
-          <div
-            key={`article ${article.id}`}
-            className="flex-shrink-0 snap-start mb-4
+        <div ref={setTarget}></div>
+        {articles.map((article, i) => (
+          <>
+            <div
+              key={`article ${article.id}`}
+              className="flex-shrink-0 snap-start mb-4
               max-w-[var(--content-width)] w-full
               h-[calc(100vh-var(--header-height)-2rem)]"
-          >
-            <Article {...article} />
-          </div>
+            >
+              <Article {...article} />
+            </div>
+            {i + 3 === articles.length ? <div ref={setTarget}></div> : null}
+          </>
         ))}
       </div>
       <Navigator />

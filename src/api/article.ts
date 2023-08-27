@@ -1,15 +1,13 @@
 import { ArticleProps } from "@/components/Article";
-import { NextResponse } from "next/server";
-import dummy from "./dummyArticles.json";
 
 export const getArticles = async (id?: string): Promise<ArticleProps[]> => {
-  // const res = await fetch(`${BACKEND_URL}/api/article${id ? `?id=${id}` : ""}`);
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/articles${id ? `/${id}` : ""}`
+  );
 
-  // if (!res.ok) {
-  //   throw new Error(`Faild to fetch data. error code: ${res.status}`);
-  // }
+  if (!res.ok) {
+    throw new Error(`Faild to fetch data. error code: ${res.status}`);
+  }
 
-  // return res.json();
-
-  return NextResponse.json(dummy).json();
+  return res.json();
 };
