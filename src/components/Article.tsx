@@ -1,3 +1,7 @@
+"use client";
+
+import { useArticleUrl } from "./useArticle";
+
 export type ArticleProps = {
   id: string;
   title: string;
@@ -6,11 +10,16 @@ export type ArticleProps = {
 };
 
 export default function Article(props: ArticleProps) {
-  const { title, summary, link } = props;
+  const { id, title, summary, link } = props;
+  const { setTarget } = useArticleUrl();
 
   return (
     <>
-      <article className="rounded-lg h-full overflow-hidden border">
+      <article
+        id={id}
+        ref={setTarget}
+        className="rounded-lg h-full overflow-hidden border"
+      >
         <div className="h-1/2 bg-yellow-300" />
         <div className="p-5">
           <h1 className="font-bold text-lg">{title}</h1>
