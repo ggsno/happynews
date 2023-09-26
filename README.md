@@ -10,5 +10,4 @@ yarn dev
 ```
 
 ## 배포 사이트
-
-[https://happynews-beta.vercel.app/](https://happynews-beta.vercel.app/)
+[https://happynews-alpha.vercel.app/](https://happynews-alpha.vercel.app/)
