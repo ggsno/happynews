@@ -1,8 +1,8 @@
 "use client";
 
-import { ArticleProps } from "./Article";
 import Link from "next/link";
 import { useArticle } from "./useArticle";
+import { ArticleProps } from "@/api/article";
 
 export default function OverviewContainer({
   initArticles,

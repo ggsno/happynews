@@ -1,6 +1,7 @@
 "use client";
 
-import Article, { ArticleProps } from "./Article";
+import { ArticleProps } from "@/api/article";
+import Article from "./Article";
 import Navigator from "./Navigator";
 import { useArticle } from "./useArticle";
 
