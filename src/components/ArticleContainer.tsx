@@ -23,7 +23,7 @@ export default function ArticleContainer({
         {articles.map((article, i) => (
           <>
             <div
-              key={`article ${article.id}`}
+              key={`article ${article._id}`}
               className="flex-shrink-0 snap-start mb-4
               max-w-[var(--content-width)] w-full
               h-[calc(100vh-var(--header-height)-2rem)]"

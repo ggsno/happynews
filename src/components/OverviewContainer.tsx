@@ -17,8 +17,8 @@ export default function OverviewContainer({
       {articles.map((article, i) => (
         <>
           <Link
-            href={`/shorts/${article.id}`}
-            key={`article ${article.id}/${i}`}
+            href={`/shorts/${article._id}`}
+            key={`article ${article._id}/${i}`}
             className={`flex items-center h-16 w-full mb-4`}
           >
             <div className="bg-yellow-300 h-16 w-4 shrink-0" />
