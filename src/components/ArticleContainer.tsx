@@ -19,7 +19,6 @@ export default function ArticleContainer({
     h-[calc(100vh-var(--header-height))] snap-y snap-mandatory 
     overflow-scroll scrollbar-hide"
       >
-        <div ref={setTarget}></div>
         {articles.map((article, i) => (
           <>
             <div

@@ -28,10 +28,17 @@ export const useArticleUrl = () => {
     { isIntersecting, target },
   ]) => {
     if (!isIntersecting) return;
+    const SHORTS_URL = "/shorts";
+    const index = window.location.pathname.indexOf(SHORTS_URL);
+    if (index === -1) {
+      console.error(`cannot find ${SHORTS_URL} in url.`);
+      return;
+    }
     window.history.pushState(
       {},
       "",
-      window.location.pathname.replace(/\/[^/]*$/, "") + `/${target.id}`
+      window.location.pathname.substring(0, index + SHORTS_URL.length) +
+        `/${target.id}`
     );
   };
   const { setTarget } = useIntersectionObserver({ onIntersect, threshold: 1 });
