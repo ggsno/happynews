@@ -7,7 +7,7 @@ export default async function Overview() {
   return (
     <>
       <div className="flex justify-center w-full ">
-        <div className="px-4 max-w-[var(--content-width)]">
+        <div className="px-4 w-[var(--content-width)]">
           <OverviewContainer initArticles={articles} />
         </div>
       </div>
