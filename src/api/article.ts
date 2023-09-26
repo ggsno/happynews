@@ -1,4 +1,10 @@
-import { ArticleProps } from "@/components/Article";
+export type ArticleProps = {
+  _id: string;
+  title: string;
+  summary: string;
+  link: string;
+  prob: number;
+};
 
 export const getArticles = async (id?: string): Promise<ArticleProps[]> => {
   const res = await fetch(

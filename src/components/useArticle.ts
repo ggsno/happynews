@@ -1,8 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { ArticleProps } from "./Article";
-import { getArticles } from "@/api/article";
+import { ArticleProps, getArticles } from "@/api/article";
 import useIntersectionObserver from "./useIntersectionObserver";
 
 export const useArticle = (initArticles: ArticleProps[]) => {

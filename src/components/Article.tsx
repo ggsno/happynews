@@ -1,17 +1,10 @@
 "use client";
 
+import { ArticleProps } from "@/api/article";
 import { useArticleUrl } from "./useArticle";
 
-export type ArticleProps = {
-  id: string;
-  title: string;
-  summary: string;
-  link: string;
-  prob: number;
-};
-
 export default function Article(props: ArticleProps) {
-  const { id, title, summary, link, prob } = props;
+  const { _id: id, title, summary, link, prob } = props;
   const { setTarget } = useArticleUrl();
 
   return (
