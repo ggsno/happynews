@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { useArticle } from "./useArticle";
 import { ArticleProps } from "@/api/article";
-import Image from "next/image";
 
 export default function OverviewContainer({
   initArticles,
@@ -14,7 +13,6 @@ export default function OverviewContainer({
 
   return (
     <>
-      <div ref={setTarget}></div>
       {articles.map((article, i) => (
         <>
           <Link
@@ -28,7 +26,6 @@ export default function OverviewContainer({
           {i + 3 === articles.length ? <div ref={setTarget}></div> : null}
         </>
       ))}
-      <Image src={"/loading.gif"} height={50} width={50} alt="loading" />
     </>
   );
 }

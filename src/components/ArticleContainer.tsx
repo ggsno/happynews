@@ -4,7 +4,6 @@ import { ArticleProps } from "@/api/article";
 import Article from "./Article";
 import Navigator from "./Navigator";
 import { useArticle } from "./useArticle";
-import Image from "next/image";
 
 export default function ArticleContainer({
   initArticles,
@@ -15,27 +14,19 @@ export default function ArticleContainer({
 
   return (
     <>
-      <div
-        id="ArticleContainer"
-        className="flex flex-col items-center 
-    h-[calc(100vh-var(--header-height))] snap-y snap-mandatory 
-    overflow-scroll scrollbar-hide"
-      >
-        {articles.map((article, i) => (
-          <>
-            <div
-              key={`article ${article._id}`}
-              className="flex-shrink-0 snap-start mb-4
+      {articles.map((article, i) => (
+        <>
+          <div
+            key={`article ${article._id}`}
+            className="flex-shrink-0 snap-start mb-4
               max-w-[var(--content-width)] w-full
               h-[calc(100vh-var(--header-height)-2rem)]"
-            >
-              <Article {...article} />
-            </div>
-            {i + 3 === articles.length ? <div ref={setTarget}></div> : null}
-          </>
-        ))}
-        <Image src={"/loading.gif"} height={50} width={50} alt="loading" />
-      </div>
+          >
+            <Article {...article} />
+          </div>
+          {i + 3 === articles.length ? <div ref={setTarget}></div> : null}
+        </>
+      ))}
       <Navigator />
     </>
   );
