@@ -4,6 +4,7 @@ import { ArticleProps } from "@/api/article";
 import Article from "./Article";
 import Navigator from "./Navigator";
 import { useArticle } from "./useArticle";
+import Image from "next/image";
 
 export default function ArticleContainer({
   initArticles,
@@ -33,6 +34,7 @@ export default function ArticleContainer({
             {i + 3 === articles.length ? <div ref={setTarget}></div> : null}
           </>
         ))}
+        <Image src={"/loading.gif"} height={50} width={50} alt="loading" />
       </div>
       <Navigator />
     </>
