@@ -6,7 +6,9 @@ export type ArticleProps = {
   prob: number;
 };
 
-export const getArticles = async (id?: string): Promise<ArticleProps[]> => {
+export const getArticles = async (
+  id?: string | null
+): Promise<ArticleProps[]> => {
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_BACKEND_URL}/articles${id ? `/${id}` : ""}`,
     { cache: "no-store" }

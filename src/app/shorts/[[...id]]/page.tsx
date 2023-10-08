@@ -2,10 +2,11 @@ import ArticleContainer from "@/components/ArticleContainer";
 import { getArticles } from "@/api/article";
 import Image from "next/image";
 
-export default async function Shorts(props?: { params: { id: string } }) {
-  const articles = props
-    ? await getArticles(props.params.id)
-    : await getArticles();
+type Props = { params: { id: string } };
+
+export default async function Shorts(props: Props | {}) {
+  const id = props.hasOwnProperty("params") ? (props as Props).params.id : null;
+  const articles = await getArticles(id);
 
   return (
     <>
