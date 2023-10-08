@@ -10,7 +10,7 @@ export default async function Shorts({ params }: { params: { id: string } }) {
       <div
         id="ArticleContainer"
         className="flex flex-col items-center 
-h-[calc(100vh-var(--header-height))] snap-y snap-mandatory 
+h-[calc(100vh-var(--header-height))] snap-y snap-mandatory snap-always
 overflow-scroll scrollbar-hide"
       >
         <ArticleContainer initArticles={articles} />
