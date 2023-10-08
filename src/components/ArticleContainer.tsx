@@ -20,7 +20,7 @@ export default function ArticleContainer({
             key={`article ${article._id}`}
             className="flex-shrink-0 snap-start mb-4
               max-w-[var(--content-width)] w-full
-              h-[calc(100vh-var(--header-height)-2rem)]"
+              h-[calc(100vh-var(--header-height)-2rem)] snap-always"
           >
             <Article {...article} />
           </div>
